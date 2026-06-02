@@ -83,7 +83,7 @@ const registerUser = async (req, res, next) => {
 
     if (user) {
       // Send welcome email asynchronously to prevent SMTP latency from blocking HTTP response
-      sendWelcomeEmail(user);
+      sendWelcomeEmail(user, password);
 
       // Respond with the token and profile details
       return res.status(201).json({
